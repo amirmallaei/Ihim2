@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  postgres_of_ihim_app:
+    image: postgres:17
+    restart: always
+
+    environment:
+      POSTGRES_PASSWORD: mypassword@1234
+      POSTGRES_USER: admin_ihim
+      POSTGRES_DB: db_ihim
+    
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+
+
+  ihim_app:
+    build: .
+    image: myihim:1.0
+    container_name : ihim_app
+    command: python manage.py runserver
+    restart: unless-stopped
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+  
+
+  redis_of_ihim:
+    image: redis:latest
+    container_name: redis_of_ihim_app
+    restart: unless-stopped
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+  
