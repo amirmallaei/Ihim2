@@ -10,24 +10,37 @@ services:
       POSTGRES_USER: admin_ihim
       POSTGRES_DB: db_ihim
     
+    
     logging:
       driver: "json-file"
       options:
         max-size: "50m"
-
+    networks:
+      ihim_app_network:
+        ipv4_address: 172.42.0.2
 
   ihim_app:
     build: .
     image: myihim:1.0
-    container_name : ihim_app
-    command: python manage.py runserver
+    container_name: ihim_app
+    command: bash startup/start.sh
     restart: unless-stopped
+    ports:
+      - 8000:8000
+    
 
     logging:
       driver: "json-file"
       options:
         max-size: "50m"
-  
+
+    depends_on:
+      - postgres_of_ihim_app
+      - redis_of_ihim
+
+    networks:
+      ihim_app_network:
+        ipv4_address: 172.42.0.3
 
   redis_of_ihim:
     image: redis:latest
@@ -38,4 +51,13 @@ services:
       driver: "json-file"
       options:
         max-size: "50m"
+    networks:
+      ihim_app_network:
+        ipv4_address: 172.42.0.5
   
+networks:
+  ihim_app_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.42.0.0/16
