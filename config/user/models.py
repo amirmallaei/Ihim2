@@ -49,6 +49,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name = _("MY User")
         verbose_name_plural = _("MY USERS")
 
+    @property
     def get_full_name(self):
         """Returns the fullname of user"""
         return f"{self.first_name} {self.last_name}"
@@ -56,3 +57,38 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_nickname(self):
         """return the nick name"""
         return self.first_name
+    
+
+class UserProfile(models.Model):
+    GENDER_CHOICES = (
+                    (0, "Male"),
+                    (1, "Female")
+    )
+    ROLES = (
+        (0, "USER"),
+        (1, "Author"),
+        (2, "Admin")
+    )
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
+    avatar = models.ImageField(blank=True, null=True, upload_to='static/images/user')
+    gender = models.PositiveIntegerField(choices=GENDER_CHOICES, default=0)
+    role = models.PositiveIntegerField(choices=ROLES, default=0)
+
+    def __str__(self):
+        return f"{self.user.get_full_name}"
+    
+    def is_user(self):
+        if self.role == "USER":
+            return True
+        return False
+
+    def is_author(self):
+        if self.role == "Author":
+            return True
+        return False
+
+    def is_admin(self):
+        if self.role == "Admins":
+            return True
+        return False

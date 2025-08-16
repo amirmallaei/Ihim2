@@ -25,6 +25,8 @@ services:
     container_name: ihim_app
     command: bash startup/start.sh
     restart: unless-stopped
+    volumes:
+      - ./config/user/migrations:/user/migrations:rw
     ports:
       - 8000:8000
     
