@@ -79,16 +79,16 @@ class UserProfile(models.Model):
         return f"{self.user.get_full_name}"
     
     def is_user(self):
-        if self.role == "USER":
+        if self.role == 0:
             return True
         return False
 
     def is_author(self):
-        if self.role == "Author":
+        if self.role == 1:
             return True
         return False
 
     def is_admin(self):
-        if self.role == "Admins":
+        if self.role == 2:
             return True
         return False

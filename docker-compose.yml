@@ -26,7 +26,7 @@ services:
     command: bash startup/start.sh
     restart: unless-stopped
     volumes:
-      - ./config/user/migrations:/user/migrations:rw
+      - "./config:/config"
     ports:
       - 8000:8000
     

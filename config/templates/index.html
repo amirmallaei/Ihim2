@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+
+{%block mainblock%}
+
+
+<div class="book-grid">
+    {% for book in books %}
+    <div class="card">
+        <div class="img-wrapper">
+            <img class="card-img" src="{{ book.image.url }}" alt="{{ book.title }}">
+        </div>
+        <h1>{{ book.title }}</h1>
+        <p class="price">{{ book.price }} $</p>
+        <p>{{ book.abstract|truncatechars:150|safe }}</p>
+        <p><button>Add to Cart</button></p>
+    </div>
+    {% endfor %}
+</div>
+
+
+{%endblock%}

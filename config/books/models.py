@@ -21,7 +21,11 @@ class Book(models.Model):
     price = models.IntegerField(default = 10)
     count = models.PositiveIntegerField(default=0)
     pages = models.IntegerField(blank=True, null=True)
-
+    status = models.BooleanField(default=0)
 
     def __str__(self):
         return self.title
+    
+    @property
+    def short_abs(self):
+        return self.abstract[0:100]
