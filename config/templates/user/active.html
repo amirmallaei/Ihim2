@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block mainblock %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="card shadow-lg p-4 text-center" style="max-width: 500px; width: 100%;">
+        {% if msg.status == "success" %}
+            <div class="alert alert-success" role="alert">
+                {{ msg.text }}
+            </div>
+        {% elif msg.status == "info" %}
+            <div class="alert alert-info" role="alert">
+                {{ msg.text }}
+            </div>
+        {% else %}
+            <div class="alert alert-danger" role="alert">
+                {{ msg.text }}
+            </div>
+        {% endif %}
+
+        <hr>
+        <a href="/" class="btn btn-primary mt-3">
+            <i class="bi bi-house-door"></i> Go to Home
+        </a>
+    </div>
+</div>
+{% endblock %}

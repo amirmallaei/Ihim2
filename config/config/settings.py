@@ -143,8 +143,8 @@ EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'ihimweb@gmail.com'
-EMAIL_HOST_PASSWORD = 'lunykcgpxygsrqrv'
+EMAIL_HOST_USER = 'amirmallaei@gmail.com'
+EMAIL_HOST_PASSWORD = 'twjwbndaieiymzyq'
 
 CELERY_BROKER_URL = 'redis://redis_of_ihim_app:6379/0'
 CELERY_RESULT_BACKEND = 'redis://redis_of_ihim_app:6379/0'

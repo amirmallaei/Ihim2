@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Activation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .button {
+      display: inline-block;
+      padding: 15px 25px;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #007bff;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 30px;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #555555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Congratulations {{name}}!</h2>
+    <p>Your account has been successfully created. Please activate your account by clicking the button below:</p>
+    <p style="font-weight: bold;">This is email is valid for 5 minues</p>
+    <a href="{{link}}" class="button">Activate Account</a>
+    <div class="footer">
+      <p>Kind regards,<br>Ihim Academy</p>
+      <p><a href="ihimrasht.ir">Visit our website</a></p>
+    </div>
+  </div>
+</body>
+</html>
