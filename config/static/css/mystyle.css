@@ -46,3 +46,119 @@
   grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
   gap: 20px; /* space between cards */
 }
+
+
+/* ==========================
+   Banner / Slider
+========================== */
+.carousel-inner img {
+  /* height: 400px; */
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.4s;
+}
+
+.carousel-inner .carousel-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ==========================
+Section Titles
+========================== */
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* ==========================
+ Cards
+========================== */
+.book-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.4s, box-shadow 0.4s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.book-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* img cards*/
+.book-card img {
+  height: 230px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.book-card:hover img {
+  transform: scale(1.05);
+}
+
+/* card body*/
+.book-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* card title*/
+.book-card .card-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* descripshions card*/
+.book-card .card-text.small {
+  color: #555;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+/* Price*/
+.book-card .card-text.text-muted {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================
+ btn Continue
+========================== */
+.btn-continue {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.btn-continue:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+}
+
+/* ==========================
+ colors
+========================== */
+.text-primary { color: #1e3a8a !important; }   /* Historical */
+.text-danger { color: #b91c1c !important; }    /* True Crime */
+.text-pink { color: #db2777 !important; }      /* Romance */
+.text-success { color: #15803d !important; }   /* Science */
+
+/* ==========================
+ Responsive adjustments
+========================== */
+@media (max-width: 768px) {
+  .carousel-inner img {
+      height: 250px;
+  }
+  .book-card img {
+      height: 200px;
+  }
+}

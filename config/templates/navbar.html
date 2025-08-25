@@ -1,40 +1,112 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">BookStore</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Poructs</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Categories
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Science</a></li>
-              <li><a class="dropdown-item" href="#">Historical</a></li>
-              <li><a class="dropdown-item" href="#">True Crime</a></li>
-              <li><a class="dropdown-item" href="#">Romance</a></li>
-             
-            </ul>
-          </li>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BookStore Navbar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      direction: ltr;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .nav-link {
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+    }
+    .nav-link .bi {
+      margin-right: 0.4rem;
+      font-size: 1.2rem;
+    }
+    .auth-links a {
+      margin-left: 1rem;
+      display: flex;
+      align-items: center;
+      color: white !important;
+    }
+    .auth-links a .bi {
+      margin-right: 0.4rem;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
 
-        </ul>
-        <div class="d-flex">
-            <p class="nav-item">
-                <a class="nav-link" href="{% url 'user:signup'%}">Signup</a>
-            </p>
-              <p class="nav-item " style="margin-left: 15px;">
-                <a class="nav-link" href="#">Signin</a>
-              </p>
-         
-            </div>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    
+    <!-- Auth buttons (right) -->
+     {%if not user.is_authenticated %}
+    <div class="d-flex auth-links order-lg-3">
+      <a class="nav-link" href="{% url 'user:signup' %}"><i class="bi bi-person-plus"></i> Sign Up</a>
+      <a class="nav-link" href="{% url 'user:login' %}"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
     </div>
-  </nav>
+    {%else%}
+    <div class="d-flex auth-links order-lg-3">
+    <a class="nav-link" href="{% url 'user:logout' %}"><i class="bi bi-person-plus"></i> Logout</a>
+    </div>
+    {%endif%}
+    
+    <!-- Mobile toggle button -->
+    <button
+      class="navbar-toggler order-lg-2"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Brand (left) -->
+    <a class="navbar-brand order-lg-1" href="#">BookStore <i class="bi bi-book"></i></a>
+    
+    <div class="collapse navbar-collapse order-lg-2" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+            <i class="bi bi-house"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-box-seam"></i> Products
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-tags"></i> Categories
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Science</a></li>
+            <li><a class="dropdown-item" href="#">Historical</a></li>
+            <li><a class="dropdown-item" href="#">True Crime</a></li>
+            <li><a class="dropdown-item" href="#">Romance</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+</nav>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

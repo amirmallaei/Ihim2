@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block mainblock %}
+<div class="container-fluid mt-3">
+    <div class="">
+        <div class="row g-0 min-vh-100">  <!-- full screen height -->
+
+            <!-- Book Image -->
+            <div class="col-md-5 d-flex align-items-center justify-content-center bg-light p-4">
+                {% if book.image %}
+                    <img src="{{ book.image.url }}" alt="{{ book.title }}" 
+                         class="img-fluid rounded-3 shadow-sm" style="max-height: 90vh;">
+                {% else %}
+                    <img src="https://via.placeholder.com/600x800?text=No+Image" 
+                         alt="No Image" class="img-fluid rounded-3 shadow-sm" style="max-height: 90vh;">
+                {% endif %}
+            </div>
+
+            <!-- Book Details -->
+            <div class="col-md-7 d-flex align-items-center">
+                <div class="card-body p-5">
+
+                    <h1 class="mb-3">{{ book.title }}</h1>
+                    <h4 class="text-muted mb-4">by {{ book.author }}</h4>
+                    
+                    <!-- Category + Status -->
+                    <p>
+                        <span class="badge bg-primary">{{ book.get_category_display }}</span>
+                        {% if book.status %}
+                            <span class="badge bg-success">Available</span>
+                        {% else %}
+                            <span class="badge bg-danger">Not Available</span>
+                        {% endif %}
+                    </p>
+
+                    <!-- Abstract -->
+                    {% if book.abstract %}
+                        <p class="lead mt-4">{{ book.abstract|safe }}</p>
+                    {% endif %}
+
+                    <!-- Book Info Table -->
+                    <table class="table table-bordered table-hover mt-4 w-75">
+                        <tbody>
+                            {%if book.year > 2024%}
+                            <tr><th>Year</th><td>{{ book.year }}</td></tr>
+                            {%endif%}
+                            <tr><th>Pages</th><td>{{ book.pages }}</td></tr>
+                            <tr><th>Copies Available</th><td>{{ book.count }}</td></tr>
+                            <tr><th>Price</th><td>${{ book.price }}</td></tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Buttons -->
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="{% url 'books:home' %}" class="btn btn-outline-secondary btn-lg">Back to List</a>
+                        {% if book.status %}
+                            <a href="#" class="btn btn-primary btn-lg">Borrow Book</a>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
