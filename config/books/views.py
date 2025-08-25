@@ -11,3 +11,5 @@ class HomeView(ListView):
     
     def get_queryset(self):
         return Book.objects.filter(status=True)
+
+
