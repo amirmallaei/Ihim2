@@ -2,10 +2,9 @@
 {% load static %}
 {% block mainblock %}
 
-<<<<<<< HEAD
-=======
+
 <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
->>>>>>> 3844c6ddf08695486a48ff5be2edbc7bce72781b
+
 
 <!-- ==========================
      Banner Slider
@@ -48,28 +47,20 @@
       {% if book.get_category_display == "Historical" %}
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card book-card shadow-lg">
-<<<<<<< HEAD
             <a href="{% url 'books:details' book.id %}">
               <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
             </a>
-=======
-            <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
->>>>>>> 3844c6ddf08695486a48ff5be2edbc7bce72781b
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{ book.title }}</h5>
               <p class="card-text text-muted">{{ book.price }} $</p>
               <p class="card-text small">{{ book.abstract|truncatechars:150|safe }}</p>
-<<<<<<< HEAD
+
               <a href="{% url 'books:details' book.id %}">
               <div class="mt-auto">
                 <button class="btn btn-continue w-100">Continue</button>
               </div>
               </a>
-=======
-              <div class="mt-auto">
-                <button class="btn btn-continue w-100">Continue</button>
-              </div>
->>>>>>> 3844c6ddf08695486a48ff5be2edbc7bce72781b
+
             </div>
           </div>
         </div>
@@ -87,28 +78,25 @@
       {% if book.get_category_display == "True Crime" %}
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card book-card shadow-lg">
-<<<<<<< HEAD
+
             <a href="{% url 'books:details' book.id %}">
             <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
             </a>
-=======
+
             <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
->>>>>>> 3844c6ddf08695486a48ff5be2edbc7bce72781b
+
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{ book.title }}</h5>
               <p class="card-text text-muted">{{ book.price }} $</p>
               <p class="card-text small">{{ book.abstract|truncatechars:150|safe }}</p>
-<<<<<<< HEAD
+
               <a href="{% url 'books:details' book.id %}">
               <div class="mt-auto">
                 <button class="btn btn-continue w-100">Continue</button>
               </div>
               </a>
-=======
-              <div class="mt-auto">
-                <button class="btn btn-continue w-100">Continue</button>
-              </div>
->>>>>>> 3844c6ddf08695486a48ff5be2edbc7bce72781b
+
+
             </div>
           </div>
         </div>
@@ -126,28 +114,18 @@
       {% if book.get_category_display == "Romance" %}
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card book-card shadow-lg">
-<<<<<<< HEAD
             <a href="{% url 'books:details' book.id %}">
             <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
             </a>
-=======
-            <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
->>>>>>> 3844c6ddf08695486a48ff5be2edbc7bce72781b
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{ book.title }}</h5>
               <p class="card-text text-muted">{{ book.price }} $</p>
               <p class="card-text small">{{ book.abstract|truncatechars:150|safe }}</p>
-<<<<<<< HEAD
               <a href="{% url 'books:details' book.id %}">
               <div class="mt-auto">
                 <button class="btn btn-continue w-100">Continue</button>
               </div>
               </a>
-=======
-              <div class="mt-auto">
-                <button class="btn btn-continue w-100">Continue</button>
-              </div>
->>>>>>> 3844c6ddf08695486a48ff5be2edbc7bce72781b
             </div>
           </div>
         </div>
@@ -165,28 +143,17 @@
       {% if book.get_category_display == "Science" %}
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card book-card shadow-lg">
-<<<<<<< HEAD
             <a href="{% url 'books:details' book.id %}">
             <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
             </a>
-=======
-            <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
->>>>>>> 3844c6ddf08695486a48ff5be2edbc7bce72781b
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{ book.title }}</h5>
               <p class="card-text text-muted">{{ book.price }} $</p>
               <p class="card-text small">{{ book.abstract|truncatechars:150|safe }}</p>
-<<<<<<< HEAD
-              <a href="{% url 'books:details' book.id %}">
+
               <div class="mt-auto">
                 <button class="btn btn-continue w-100">Continue</button>
               </div>
-            </a>
-=======
-              <div class="mt-auto">
-                <button class="btn btn-continue w-100">Continue</button>
-              </div>
->>>>>>> 3844c6ddf08695486a48ff5be2edbc7bce72781b
             </div>
           </div>
         </div>
